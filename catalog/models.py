@@ -2,14 +2,14 @@ import uuid
 
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 
 class Genre(models.Model):
     """Model representing a book genre."""
     name = models.CharField(
         max_length=200,
-        help_text=gettext('Enter a book genre (e.g. Science Fiction)'))
+        help_text=_('Enter a book genre (e.g. Science Fiction)'))
 
     def __str__(self):
         """String for representing the Model object."""
@@ -20,7 +20,7 @@ class Language(models.Model):
     """Model representing a Language."""
     name = models.CharField(
         max_length=200,
-        help_text=gettext("Enter language of the book"))
+        help_text=_("Enter language of the book"))
 
     def __str__(self):
         """String for representing the Model object."""
@@ -39,12 +39,12 @@ class Book(models.Model):
 
     summary = models.TextField(
         max_length=1000,
-        help_text=gettext('Enter a brief description of the book'))
+        help_text=_('Enter a brief description of the book'))
     isbn = models.CharField(
         'ISBN',
         max_length=13,
         unique=True,
-        help_text=gettext(
+        help_text=_(
             '13 Character <a href="https://www.isbn-international.org'
             '/content/what-isbn">ISBN number</a>'))
 
@@ -53,7 +53,7 @@ class Book(models.Model):
     # Genre class has already been defined, so we can specify the object above.
     genre = models.ManyToManyField(
         Genre,
-        help_text=gettext('Select a genre for this book'))
+        help_text=_('Select a genre for this book'))
     language = models.ForeignKey(Language,
                                  on_delete=models.SET_NULL,
                                  null=True)
@@ -78,7 +78,7 @@ class BookInstance(models.Model):
     """Model representing a specific copy of a book
     (i.e. that can be borrowed from the library)."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
-                          help_text=gettext(
+                          help_text=_(
                               'Unique ID for this particular book '
                               'across whole library'))
     book = models.ForeignKey(Book, on_delete=models.RESTRICT, null=True)
@@ -97,7 +97,7 @@ class BookInstance(models.Model):
         choices=LOAN_STATUS,
         blank=True,
         default='m',
-        help_text=gettext('Book availability')
+        help_text=_('Book availability')
     )
 
     class Meta:
