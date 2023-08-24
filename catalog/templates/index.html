@@ -27,4 +27,10 @@
       {{num_genres_search.value}}
     </li>
   </ul>
+
+  <p>
+    {% blocktranslate %}
+      You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.
+    {% endblocktranslate %}
+  </p>
 {% endblock %}

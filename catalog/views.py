@@ -15,6 +15,10 @@ def index(request):
 
     num_authors = Author.objects.count()
 
+    # Number of visits to this view, as counted in the session variable.
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
     num_genres_search = Genre.objects.filter(
         name__icontains='comic').count()
     num_books_search = Book.objects.filter(
@@ -30,7 +34,8 @@ def index(request):
             'value': num_genres_search},
         'num_books_search': {
             'key': 'ever',
-            'value': num_books_search}
+            'value': num_books_search},
+        'num_visits': num_visits,
     }
 
     # Render the HTML template index.html with the data in the context variable
