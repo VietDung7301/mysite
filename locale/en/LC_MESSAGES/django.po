@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-25 09:37+0700\n"
+"POT-Creation-Date: 2023-08-25 11:06+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: catalog/models.py:12
 msgid "Enter a book genre (e.g. Science Fiction)"
 msgstr "Enter a book genre (e.g. Science Fiction)"
@@ -33,7 +34,8 @@ msgstr "Enter a brief description of the book"
 msgid ""
 "13 Character <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">ISBN number</a>"
-msgstr "13 Character <a href=\"https://www.isbn-international.org/content/what-"
+msgstr ""
+"13 Character <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">ISBN number</a>"
 
 #: catalog/models.py:56
@@ -60,6 +62,95 @@ msgstr "All books"
 msgid "All authors"
 msgstr "All authors"
 
+#: catalog/templates/base_generic.html:41
+#, python-format
+msgid ""
+"\n"
+"                      Page %(page_obj.number)s of "
+"%(page_obj.paginator.num_pages)s.\n"
+"                    "
+msgstr "\n"
+"                      Page %(page_obj.number)s of "
+"%(page_obj.paginator.num_pages)s.\n"
+"                    "
+
+#: catalog/templates/catalog/author_detail.html:7
+#: catalog/templates/catalog/book_detail.html:9
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author:"
+msgstr "Authors:"
+
+#: catalog/templates/catalog/author_detail.html:11
+#, fuzzy
+#| msgid "Books:"
+msgid "Books"
+msgstr "Books:"
+
+#: catalog/templates/catalog/author_list.html:5
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author List"
+msgstr "Authors:"
+
+#: catalog/templates/catalog/author_list.html:18
+msgid "There are no authors available."
+msgstr "There are no authors available."
+
+#: catalog/templates/catalog/book_detail.html:7
+msgid "Title:"
+msgstr "Title:"
+
+#: catalog/templates/catalog/book_detail.html:10
+msgid "Summary:"
+msgstr "Summary:"
+
+#: catalog/templates/catalog/book_detail.html:11
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: catalog/templates/catalog/book_detail.html:12
+msgid "Language:"
+msgstr "Language:"
+
+#: catalog/templates/catalog/book_detail.html:13
+msgid "Genre:"
+msgstr "Genre:"
+
+#: catalog/templates/catalog/book_detail.html:16
+#, fuzzy
+#| msgid "Copies:"
+msgid "Copies"
+msgstr "Copies:"
+
+#: catalog/templates/catalog/book_detail.html:25
+#, python-format
+msgid ""
+"\n"
+"          <p><strong>Due to be returned: </strong> %(copy.due_back)s</p>\n"
+"        "
+msgstr "\n"
+"          <p><strong>Due to be returned: </strong> %(copy.due_back)s</p>\n"
+"        "
+
+#: catalog/templates/catalog/book_detail.html:29
+msgid "Imprint:"
+msgstr "Imprint:"
+
+#: catalog/templates/catalog/book_detail.html:30
+msgid "Id:"
+msgstr "Id:"
+
+#: catalog/templates/catalog/book_list.html:5
+#, fuzzy
+#| msgid "Books:"
+msgid "Book List"
+msgstr "Books:"
+
+#: catalog/templates/catalog/book_list.html:16
+msgid "There are no books in the library."
+msgstr "There are no books in the library."
+
 #: catalog/templates/index.html:17
 msgid "Books:"
 msgstr "Books:"
@@ -83,6 +174,18 @@ msgstr "Books contain"
 #: catalog/templates/index.html:26
 msgid "Genres contain"
 msgstr "Genres contain"
+
+#: catalog/templates/index.html:32
+#, python-format
+msgid ""
+"\n"
+"      You have visited this page %(num_visits)s "
+"time%(num_visits|pluralize)s.\n"
+"    "
+msgstr "\n"
+"      You have visited this page %(num_visits)s "
+"time%(num_visits|pluralize)s.\n"
+"    "
 
 #: locallibrary/settings.py:118
 msgid "English"
