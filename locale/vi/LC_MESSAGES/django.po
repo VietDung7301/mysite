@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 11:03+0700\n"
+"POT-Creation-Date: 2023-08-29 08:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: catalog/forms.py:11
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr "Nhập một ngày trong khoảng hôm nay đến 4 tuần sau (mặc định là 3)."
+
+#: catalog/forms.py:18
+msgid "Invalid date - renewal in past"
+msgstr "Ngày không hợp lệ - gia hạn trong quá khứ"
+
+#: catalog/forms.py:23
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr "Ngày không hợp lệ - gia hạn hơn 4 tuần"
 
 #: catalog/models.py:14
 msgid "Enter a book genre (e.g. Science Fiction)"
@@ -34,8 +46,7 @@ msgstr "Nhập mô tả ngắn gọn về cuốn sách"
 msgid ""
 "13 Character <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">ISBN number</a>"
-msgstr ""
-"13 ký tự <a href=\"https://www.isbn-international.org/content/what-"
+msgstr "13 ký tự <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">\">ISBN number</a>"
 
 #: catalog/models.py:58
@@ -85,9 +96,28 @@ msgid ""
 "                      Page %(page_obj.number)s of "
 "%(page_obj.paginator.num_pages)s.\n"
 "                    "
-msgstr ""
-"\n"
+msgstr "\n"
 "Trang số %(page_obj.number)s trên %(page_obj.paginator.num_pages)s."
+
+
+#: catalog/templates/catalog/author_confirm_delete.html:6
+#, fuzzy
+#| msgid "Authors:"
+msgid "Delete Author"
+msgstr "Tác giả:"
+
+#: catalog/templates/catalog/author_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"<p>Are you sure you want to delete the author: %(author)s?</p>\n"
+msgstr "\n"
+"<p>Bạn có chắc chắn muốn xóa tác giả: %(author)s?</p>\n"
+
+#: catalog/templates/catalog/author_confirm_delete.html:14
+#: catalog/templates/catalog/book_confirm_delete.html:14
+msgid "Yes, delete."
+msgstr "Chắc chắn."
 
 #: catalog/templates/catalog/author_detail.html:7
 #: catalog/templates/catalog/book_detail.html:9
@@ -102,6 +132,12 @@ msgstr "Tác giả:"
 msgid "Books"
 msgstr "Sách:"
 
+#: catalog/templates/catalog/author_form.html:10
+#: catalog/templates/catalog/book_form.html:10
+#: catalog/templates/catalog/book_renew_librarian.html:16
+msgid "Submit"
+msgstr "Gửi"
+
 #: catalog/templates/catalog/author_list.html:5
 #, fuzzy
 #| msgid "Authors:"
@@ -111,6 +147,18 @@ msgstr "Tác giả:"
 #: catalog/templates/catalog/author_list.html:18
 msgid "There are no authors available."
 msgstr "Không có tác giả có sẵn."
+
+#: catalog/templates/catalog/book_confirm_delete.html:6
+msgid "Delete Book"
+msgstr "Xóa sách"
+
+#: catalog/templates/catalog/book_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"<p>Are you sure you want to delete the book: %(book)s?</p>\n"
+msgstr "\n"
+"<p>Bạn có chắc chắn muốn xóa sách: %(book)s?</p>\n"
 
 #: catalog/templates/catalog/book_detail.html:7
 msgid "Title:"
@@ -144,8 +192,7 @@ msgid ""
 "\n"
 "          <p><strong>Due to be returned: </strong> %(copy.due_back)s</p>\n"
 "        "
-msgstr ""
-"\n"
+msgstr "\n"
 "          <p><strong>Hạn trả lại: </strong> %(copy.due_back)s</p>\n"
 "        "
 
@@ -166,6 +213,21 @@ msgstr "Sách:"
 #: catalog/templates/catalog/book_list.html:16
 msgid "There are no books in the library."
 msgstr "Không có sách trong thư viện."
+
+#: catalog/templates/catalog/book_renew_librarian.html:5
+#, python-format
+msgid "<h1>Renew: %(book_instance.book.title)s</h1>"
+msgstr "<h1>Thay đổi: %(book_instance.book.title)s</h1>"
+
+#: catalog/templates/catalog/book_renew_librarian.html:6
+#, python-format
+msgid "<p>Borrower: %(book_instance.borrower)s</p>"
+msgstr "<p>Người mượn: %(book_instance.borrower)s</p>"
+
+#: catalog/templates/catalog/book_renew_librarian.html:8
+#, python-format
+msgid "Due date: %(book_instance.due_back)s"
+msgstr "Ngày đến hạn: %(book_instance.due_back)s"
 
 #: catalog/templates/catalog/bookinstance_list_borrowed_user.html:5
 msgid "Borrowed books"
@@ -208,8 +270,7 @@ msgid ""
 "      You have visited this page %(num_visits)s "
 "time%(num_visits|pluralize)s.\n"
 "    "
-msgstr ""
-"\n"
+msgstr "\n"
 "      Bạn đã ghé thăm trang này %(num_visits)s %(num_visits|pluralize)s "
 "lần.\n"
 "    "
@@ -236,7 +297,8 @@ msgid ""
 "      <p>Your username and password didn't match. Please try again.</p>\n"
 "    "
 msgstr "\n"
-"      <p>Tên người dùng và mật khẩu của bạn không khớp. Vui lòng thử lại.</p>\n"
+"      <p>Tên người dùng và mật khẩu của bạn không khớp. Vui lòng thử lại.</"
+"p>\n"
 "    "
 
 #: templates/registration/login.html:13
@@ -246,7 +308,8 @@ msgid ""
 "        please login with an account that has access.</p>\n"
 "      "
 msgstr "\n"
-"        <p>Tài khoản của bạn không có quyền truy cập vào trang này. Để tiếp tục,\n"
+"        <p>Tài khoản của bạn không có quyền truy cập vào trang này. Để tiếp "
+"tục,\n"
 " vui lòng đăng nhập bằng tài khoản có quyền truy cập.</p>\n"
 "      "
 
@@ -288,7 +351,8 @@ msgid ""
 "    "
 msgstr "\n"
 "      <h1>Đặt lại mật khẩu không thành công</h1>\n"
-"      <p>Liên kết đặt lại mật khẩu không hợp lệ, có thể vì nó đã được sử dụng. Vui lòng yêu cầu đặt lại mật khẩu mới.</p>\n"
+"      <p>Liên kết đặt lại mật khẩu không hợp lệ, có thể vì nó đã được sử "
+"dụng. Vui lòng yêu cầu đặt lại mật khẩu mới.</p>\n"
 "    "
 
 #: templates/registration/password_reset_done.html:5
@@ -299,7 +363,8 @@ msgid ""
 "  "
 msgstr "\n"
 "    <p>Chúng tôi đã gửi cho bạn hướng dẫn đặt mật khẩu qua email.\n"
-"      Nếu nó chưa đến sau vài phút, hãy kiểm tra thư mục thư rác của bạn.</p>\n"
+"      Nếu nó chưa đến sau vài phút, hãy kiểm tra thư mục thư rác của bạn.</"
+"p>\n"
 "  "
 
 #: templates/registration/password_reset_email.html:3
@@ -310,7 +375,8 @@ msgid ""
 "below:\n"
 "  %(protocol)s://%(domain)s\n"
 msgstr "\n"
-"  Ai đó đã yêu cầu đặt lại mật khẩu cho email %(email)s. Theo liên kết dưới đây:\n"
+"  Ai đó đã yêu cầu đặt lại mật khẩu cho email %(email)s. Theo liên kết dưới "
+"đây:\n"
 "  %(protocol)s://%(domain)s\n"
 
 #: templates/registration/password_reset_form.html:11

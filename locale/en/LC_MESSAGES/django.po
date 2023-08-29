@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 11:03+0700\n"
+"POT-Creation-Date: 2023-08-29 08:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: catalog/forms.py:11
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr "Enter a date between now and 4 weeks (default 3)."
+
+#: catalog/forms.py:18
+msgid "Invalid date - renewal in past"
+msgstr "Invalid date - renewal in past"
+
+#: catalog/forms.py:23
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr "Invalid date - renewal more than 4 weeks ahead"
 
 #: catalog/models.py:14
 msgid "Enter a book genre (e.g. Science Fiction)"
@@ -34,9 +46,9 @@ msgstr "Enter a brief description of the book"
 msgid ""
 "13 Character <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">ISBN number</a>"
-msgstr ""
-"13 Character <a href=\"https://www.isbn-international.org/content/what-"
+msgstr "13 Character <a href=\"https://www.isbn-international.org/content/what-"
 "isbn\">ISBN number</a>"
+
 
 #: catalog/models.py:58
 msgid "Select a genre for this book"
@@ -85,11 +97,30 @@ msgid ""
 "                      Page %(page_obj.number)s of "
 "%(page_obj.paginator.num_pages)s.\n"
 "                    "
-msgstr ""
-"\n"
+msgstr "\n"
 "                      Page %(page_obj.number)s of "
 "%(page_obj.paginator.num_pages)s.\n"
 "                    "
+
+
+#: catalog/templates/catalog/author_confirm_delete.html:6
+#, fuzzy
+#| msgid "Authors:"
+msgid "Delete Author"
+msgstr "Authors:"
+
+#: catalog/templates/catalog/author_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"<p>Are you sure you want to delete the author: %(author)s?</p>\n"
+msgstr "\n"
+"<p>Are you sure you want to delete the author: %(author)s?</p>\n"
+
+#: catalog/templates/catalog/author_confirm_delete.html:14
+#: catalog/templates/catalog/book_confirm_delete.html:14
+msgid "Yes, delete."
+msgstr "Yes, delete."
 
 #: catalog/templates/catalog/author_detail.html:7
 #: catalog/templates/catalog/book_detail.html:9
@@ -104,6 +135,12 @@ msgstr "Authors:"
 msgid "Books"
 msgstr "Books:"
 
+#: catalog/templates/catalog/author_form.html:10
+#: catalog/templates/catalog/book_form.html:10
+#: catalog/templates/catalog/book_renew_librarian.html:16
+msgid "Submit"
+msgstr "Submit"
+
 #: catalog/templates/catalog/author_list.html:5
 #, fuzzy
 #| msgid "Authors:"
@@ -113,6 +150,18 @@ msgstr "Authors:"
 #: catalog/templates/catalog/author_list.html:18
 msgid "There are no authors available."
 msgstr "There are no authors available."
+
+#: catalog/templates/catalog/book_confirm_delete.html:6
+msgid "Delete Book"
+msgstr "Delete Book"
+
+#: catalog/templates/catalog/book_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"<p>Are you sure you want to delete the book: %(book)s?</p>\n"
+msgstr "\n"
+"<p>Are you sure you want to delete the book: %(book)s?</p>\n"
 
 #: catalog/templates/catalog/book_detail.html:7
 msgid "Title:"
@@ -146,10 +195,10 @@ msgid ""
 "\n"
 "          <p><strong>Due to be returned: </strong> %(copy.due_back)s</p>\n"
 "        "
-msgstr ""
-"\n"
+msgstr "\n"
 "          <p><strong>Due to be returned: </strong> %(copy.due_back)s</p>\n"
 "        "
+
 
 #: catalog/templates/catalog/book_detail.html:29
 msgid "Imprint:"
@@ -168,6 +217,21 @@ msgstr "Books:"
 #: catalog/templates/catalog/book_list.html:16
 msgid "There are no books in the library."
 msgstr "There are no books in the library."
+
+#: catalog/templates/catalog/book_renew_librarian.html:5
+#, python-format
+msgid "<h1>Renew: %(book_instance.book.title)s</h1>"
+msgstr "<h1>Renew: %(book_instance.book.title)s</h1>"
+
+#: catalog/templates/catalog/book_renew_librarian.html:6
+#, python-format
+msgid "<p>Borrower: %(book_instance.borrower)s</p>"
+msgstr "<p>Borrower: %(book_instance.borrower)s</p>"
+
+#: catalog/templates/catalog/book_renew_librarian.html:8
+#, python-format
+msgid "Due date: %(book_instance.due_back)s"
+msgstr "Due date: %(book_instance.due_back)s"
 
 #: catalog/templates/catalog/bookinstance_list_borrowed_user.html:5
 msgid "Borrowed books"
@@ -210,8 +274,7 @@ msgid ""
 "      You have visited this page %(num_visits)s "
 "time%(num_visits|pluralize)s.\n"
 "    "
-msgstr ""
-"\n"
+msgstr "\n"
 "      You have visited this page %(num_visits)s "
 "time%(num_visits|pluralize)s.\n"
 "    "
@@ -247,7 +310,7 @@ msgid ""
 "        <p>Your account doesn't have access to this page. To proceed,\n"
 "        please login with an account that has access.</p>\n"
 "      "
-msgstr"\n"
+msgstr "\n"
 "        <p>Your account doesn't have access to this page. To proceed,\n"
 "        please login with an account that has access.</p>\n"
 "      "
